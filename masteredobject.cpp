@@ -1,0 +1,1 @@
+#include "masteredobject.h"

@@ -1,0 +1,12 @@
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/lib/libRedPandasToolbox.dll.a
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/bin/libRedPandasToolbox.dll
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/RedPandasToolbox_global.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/redpandastoolbox.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/math.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/geometry.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/array.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/groups.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/types.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/include/RedPandasToolbox/util.h
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/lib/cmake/RedPandasToolbox/RedPandasToolboxConfig.cmake
+C:/Users/simeo/Documents/prog/cpp/libs/RedpandasToolbox/lib/cmake/RedPandasToolbox/RedPandasToolboxConfig-noconfig.cmake
