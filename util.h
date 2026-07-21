@@ -26,50 +26,9 @@
 #include <QList>
 #include <QMutex>
 #include "RedPandasToolbox_global.h"
+
+#ifdef _WIN32
 #include <dwmapi.h>
-
-typedef std::function<void()> Then;
-
-#define GET_SPECIAL_TYPE(name, category) __type_##category_##name
-#define SET_SPECIAL_TYPE(name, type, category) private: using GET_SPECIAL_TYPE(name, category) = type; public:
-#define CONSTR_SPECIAL_TYPE constr
-
-#define GENERAL_ATTRIBUTE(type, name, defaultValue) private: type name = defaultValue; public:
-#define GENERAL_ATTRIBUTE_NoDv(type, name) private: type name; public:
-#define CONST_GENERAL_PROPERTY_POD(type, name, defaultValue, getter) GENERAL_ATTRIBUTE(type, name, defaultValue) inline type getter() const { return name; }
-#define CONST_GENERAL_PROPERTY_PTR(type, name, defaultValue, getter) CONST_GENERAL_PROPERTY_POD(type, name, defaultValue, getter)
-#define CONST_GENERAL_PROPERTY_BIGPOD(type, name, defaultValue, getter) GENERAL_ATTRIBUTE(type, name, defaultValue) inline const type& getter() const { return name; }
-#define GENERAL_PROPERTY_POD(type, name, defaultValue, getter, setter) CONST_GENERAL_PROPERTY_POD(type, name, defaultValue, getter) inline void setter(type name) { this->name = name; } public:
-#define GENERAL_PROPERTY_PTR(type, name, defaultValue, getter, setter) GENERAL_PROPERTY_POD(type, name, defaultValue, getter, setter)
-#define GENERAL_PROPERTY_BIGPOD(type, name, defaultValue, getter, setter) CONST_GENERAL_PROPERTY_BIGPOD(type, name, defaultValue, getter) inline void setter(const type& name) { this->name = name; } public:
-#define CONST_PROPERTY_POD(type, name, getter) GENERAL_ATTRIBUTE_NoDv(type, name) public: inline type getter() const { return name; }
-#define CONST_PROPERTY_BIGPOD(type, name, getter) GENERAL_ATTRIBUTE_NoDv(type, name) public: inline const type& getter() const { return name; }
-#define CONST_PROPERTY_PTR(type, name, getter) GENERAL_ATTRIBUTE(type, name, nullptr) public: inline type getter() const { return name; }
-#define FULL_PROPERTY_PTR(type, name, defaultValue, getter, setter, nullChecker) GENERAL_PROPERTY_PTR(type, name, defaultValue, getter, setter) public: inline bool nullChecker() const { return getter() != nullptr; }
-#define FULL_PROPERTY_SAFEPTR(type, name, defaultValue, getter, setter, nullChecker) GENERAL_PROPERTY_BIGPOD(rpt::SafePtr<type>, name, defaultValue, getter, setter) public: inline bool nullChecker() const { return !name.isNull(); }
-#define CONST_CONSTRUCTABLE_PROPERTY_POD(type, name, getter) CONST_PROPERTY_POD(type, name, getter) SET_SPECIAL_TYPE(name, type, CONSTR_SPECIAL_TYPE)
-#define CONST_CONSTRUCTABLE_PROPERTY_BIGPOD(type, name, getter) CONST_PROPERTY_BIGPOD(type, name, getter) SET_SPECIAL_TYPE(name, const type&, CONSTR_SPECIAL_TYPE)
-#define CONST_CONSTRUCTABLE_PROPERTY_PTR(type, name, getter) CONST_PROPERTY_PTR(type, name, getter) SET_SPECIAL_TYPE(name, type, CONSTR_SPECIAL_TYPE)
-
-#define GET_MACRO_CONSTRUCTOR(_1, _2, _3, _4, _5, _6, NAME, ...) NAME
-#define CONSTRUCTOR(...) \
-GET_MACRO_CONSTRUCTOR(__VA_ARGS__, CONSTR_5, CONSTR_4, CONSTR_3, CONSTR_2, CONSTR_1, CONSTR_0)(__VA_ARGS__)
-
-#define CONSTR_0(type) type()
-#define CONSTR_1(type, att1) type(GET_SPECIAL_TYPE(att1, CONSTR_SPECIAL_TYPE) att1) : att1(att1)
-#define CONSTR_2(type, att1, att2) type(GET_SPECIAL_TYPE(att1, CONSTR_SPECIAL_TYPE) att1, GET_SPECIAL_TYPE(att2, CONSTR_SPECIAL_TYPE) att2) : att1(att1), att2(att2)
-#define CONSTR_3(type, att1, att2, att3) type(GET_SPECIAL_TYPE(att1, CONSTR_SPECIAL_TYPE) att1, GET_SPECIAL_TYPE(att2, CONSTR_SPECIAL_TYPE) att2, GET_SPECIAL_TYPE(att3, CONSTR_SPECIAL_TYPE) att3) \
-    : att1(att1), att2(att2), att3(att3)
-#define CONSTR_4(type, att1, att2, att3, att4) type(GET_SPECIAL_TYPE(att1, CONSTR_SPECIAL_TYPE) att1, GET_SPECIAL_TYPE(att2, CONSTR_SPECIAL_TYPE) att2, GET_SPECIAL_TYPE(att3, CONSTR_SPECIAL_TYPE) att3, GET_SPECIAL_TYPE(att4, CONSTR_SPECIAL_TYPE) att4) \
-    : att1(att1), att2(att2), att3(att3), att4(att4)
-#define CONSTR_5(type, att1, att2, att3, att4, att5) type(GET_SPECIAL_TYPE(att1, CONSTR_SPECIAL_TYPE) att1, GET_SPECIAL_TYPE(att2, CONSTR_SPECIAL_TYPE) att2, GET_SPECIAL_TYPE(att3, CONSTR_SPECIAL_TYPE) att3, GET_SPECIAL_TYPE(att4, CONSTR_SPECIAL_TYPE) att4, GET_SPECIAL_TYPE(att5, CONSTR_SPECIAL_TYPE) att5) \
-    : att1(att1), att2(att2), att3(att3), att4(att4), att5(att5)
-
-#define LOCKABLE mutable QMutex mutex;
-#define STATIC_LOCKABLE inline static QMutex mutex = {};
-#define LOCK QMutexLocker locker(&mutex);
-
-#define INSTANCE_BASED(className) static className* instance() { static className* v = new className(); return v; }
 
 #ifndef DWMWA_USE_IMMERSIVE_DARK_MODE
 #define DWMWA_USE_IMMERSIVE_DARK_MODE 20
@@ -83,29 +42,15 @@ GET_MACRO_CONSTRUCTOR(__VA_ARGS__, CONSTR_5, CONSTR_4, CONSTR_3, CONSTR_2, CONST
 #define DWMWA_TEXT_COLOR 36
 #endif
 
-#define ERROR_LISTENER_CPP std::function<void(const QString&)> errorListener
-#define ERROR_LISTENER ERROR_LISTENER_CPP = Util::error
-
-#define MASTERED(type) FULL_PROPERTY_PTR(type*, master, nullptr, getMaster, setMaster, hasMaster)
-
 #define COLORED_TOP_BAR(r, g, b) HWND hwnd = (HWND)this->winId(); \
 COLORREF color = RGB(r, g, b); \
     DwmSetWindowAttribute(hwnd, DWMWA_CAPTION_COLOR, &color, sizeof(color)); \
     BOOL darkMode = TRUE; \
     DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &darkMode, sizeof(darkMode));
 
-#define ADD_LAYOUTED_WIDGET_FULL(widgetType, widgetName, layoutType, parentName) widgetType* widgetName = new widgetType(parentName); \
-    new layoutType(widgetName); \
-    if (parentName != nullptr) parentName->layout()->addWidget(widgetName); \
-    widgetName->layout()->setContentsMargins(0, 0, 0, 0);
-
-#define ADD_LAYOUTED_WIDGET(widgetName, layoutType, parentName) ADD_LAYOUTED_WIDGET_FULL(QWidget, widgetName, layoutType, parentName)
-
-class Lockable {
-protected:
-    LOCKABLE
-};
-
+#else
+#define COLORED_TOP_BAR(r, g, b) ;
+#endif
 
 class REDPANDASTOOLBOX_EXPORT Console {
 public:

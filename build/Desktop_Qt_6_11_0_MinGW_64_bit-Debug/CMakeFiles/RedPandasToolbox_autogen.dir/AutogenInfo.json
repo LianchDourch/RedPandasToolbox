@@ -481,6 +481,12 @@
 			null
 		],
 		[
+			"C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/itemdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_itemdialog.cpp",
+			null
+		],
+		[
 			"C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/masteredobject.h",
 			"MU",
 			"EWIEGA46WW/moc_masteredobject.cpp",
@@ -709,6 +715,11 @@
 		],
 		[
 			"C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/imagewidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/itemdialog.cpp",
 			"MU",
 			null
 		],
