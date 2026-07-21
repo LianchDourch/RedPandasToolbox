@@ -26,7 +26,7 @@
 #include <QList>
 #include <QMutex>
 #include "RedPandasToolbox_global.h"
-/*
+
 #ifdef _WIN32
 #include <dwmapi.h>
 
@@ -48,9 +48,9 @@ COLORREF color = RGB(r, g, b); \
     BOOL darkMode = TRUE; \
     DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &darkMode, sizeof(darkMode));
 
-#else*/
+#else
 #define COLORED_TOP_BAR(r, g, b) ;
-//#endif
+#endif
 
 class REDPANDASTOOLBOX_EXPORT Console {
 public:
