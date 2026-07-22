@@ -6,6 +6,7 @@
 #include "rpointers.h"
 #include "robject.h"
 #include "math.h"
+#include <numbers>
 
 
 #define R_LAMBDA_RUNNABLE(var) rpt::Runnable var; { class AnonymousRLambdaRunnable : public rpt::_Runnable { public: void run() override
