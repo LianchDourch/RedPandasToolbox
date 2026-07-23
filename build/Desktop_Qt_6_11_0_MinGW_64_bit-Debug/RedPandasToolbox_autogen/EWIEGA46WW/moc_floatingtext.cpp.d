@@ -1,5 +1,6 @@
 C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/RedPandasToolbox_autogen/EWIEGA46WW/moc_floatingtext.cpp: C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/floatingtext.h \
   C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/RedPandasToolbox_autogen/moc_predefs.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QChar \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QDate \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QFlags \
@@ -465,6 +466,7 @@ C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/build/Desktop_Qt_6_11_0_MinGW
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numbers \
@@ -764,4 +766,13 @@ C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/build/Desktop_Qt_6_11_0_MinGW
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wtypes.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wtypesbase.h \
   C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/RedPandasToolbox_global.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/array.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/arraylist.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/groups.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/rfunctions.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/rmath.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/robject.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/rpointers.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/rstringutils.h \
+  C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/types.h \
   C:/Users/simeo/Documents/prog/cpp/RedPandasToolbox/util.h

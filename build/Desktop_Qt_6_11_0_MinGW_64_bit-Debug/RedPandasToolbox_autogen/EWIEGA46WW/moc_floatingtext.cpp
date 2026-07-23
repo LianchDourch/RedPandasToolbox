@@ -41,7 +41,7 @@ template <> constexpr inline auto FloatingText::qt_create_metaobjectdata<qt_meta
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "FloatingText",
-        "0$pF6W1tmg59p87tzefSbPCdRYhiU",
+        "0$vLga/IZxolrDDjx6hqHxU3TT1QQ",
         "onAnimationFinished",
         "",
         "pos",
